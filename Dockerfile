@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends tzdata language
 
 # Install base-devel
 RUN apt-get install -y \
-    build-essential less wget curl file which \
+    build-essential less wget curl file \
     vim git zip unzip rsync cpio bc \
     dialog ncurses-base ncurses-bin libncurses5-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
