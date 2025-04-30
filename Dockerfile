@@ -17,9 +17,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends tzdata language
     && dpkg-reconfigure -f noninteractive tzdata
 
 # Install base-devel
-RUN apt-get install -y build-essential \
-    less wget curl file vim dialog bc bison dwarves flex git gnupg2 \
-    libelf-dev libncurses5-dev libssl-dev pahole perl-base rsync \
+RUN apt-get install -y \
+    build-essential less wget curl file which \
+    vim git zip unzip rsync cpio bc \
+    dialog ncurses-base ncurses-bin libncurses5-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ARG CHECKSUM=f9444c2e3054e0b3d0f555ab8130520bd08cdb95196233672b52b9569d14c97f 
