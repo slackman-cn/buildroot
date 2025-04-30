@@ -27,7 +27,7 @@ ARG CHECKSUM=f9444c2e3054e0b3d0f555ab8130520bd08cdb95196233672b52b9569d14c97f
 WORKDIR /build
 ADD --checksum=sha256:${CHECKSUM} https://buildroot.org/downloads/${SDK}.tar.gz .
 
-RUN tar -xf ${SDK}.tar.zst && cd ${SDK} \
+RUN tar -xf ${SDK}.tar.gz && cd ${SDK} \
     && make defconfig \
     && make source
 
