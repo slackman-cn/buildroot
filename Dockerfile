@@ -11,16 +11,16 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TZ=Asia/Shanghai \
     SDK=buildroot-2025.02
     
-RUN apt-get update && apt-get install -y --no-install-recommends tzdata \
+RUN apt-get update && apt-get install -y --no-install-recommends tzdata language-pack-en \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime  \
     && echo $TZ > /etc/timezone \
-    && dpkg-reconfigure -f noninteractive tzdata 
+    && dpkg-reconfigure -f noninteractive tzdata
 
 # Install base-devel
-RUN apt-get update && apt-get install -y \
-    build-essential ncurses-base ncurses-bin libncurses5-dev dialog \
+RUN apt-get install -y build-essential \
+    less wget curl file vim dialog bc bison dwarves flex git gnupg2 \
+    libelf-dev libncurses5-dev libssl-dev pahole perl-base rsync \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-
 
 ARG CHECKSUM=f9444c2e3054e0b3d0f555ab8130520bd08cdb95196233672b52b9569d14c97f 
 
